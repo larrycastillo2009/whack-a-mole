@@ -6,9 +6,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
-<body onload="changeHoleColor()">
+<body>
 <div class="container-fluid border" style="height: 100vh">
-    <div class="row offset-3" style="height: 75vh; width: 75vh">
+    <span class="score"></span>
+    <div id="message"></div>
+    <button id="start">Start Game</button>
+    <div id="touch" class="row offset-3" style="height: 75vh; width: 75vh">
         <div class="mole_hole border col-4 ">a</div>
         <div class="mole_hole border col-4 ">b</div>
         <div class="mole_hole border col-4 ">c</div>
@@ -32,12 +35,47 @@
 <script>
     "use strict";
 
-    var moleHoles = document.getElementsByClassName('mole_hole');
-    var randomNumber = Math.floor(Math.random() * moleHoles.length);
+    var score = 0;
+    var gameover = false;
 
-    function changeHoleColor() {
-        $('.mole_hole:eq(' + randomNumber +')').css('background-color','red');
-    }
+        $(function () {
+        $('#start').click(startGame);
+
+
+        });
+
+        function startGame(){
+            score = 0;
+            $('.score').text(score);
+
+            gameover = false;
+            setTimeout(function () {
+                return gameend();
+            },5000);
+        }
+
+        function gameend() {
+            gameover = true
+            $('#message').html('GAME OVER')
+        }
+
+    // var moleHoles = document.getElementsByClassName('mole_hole');
+    // var randomNumber = Math.floor(Math.random() * moleHoles.length);
+    // var randomMoleHole = moleHoles[randomNumber];
+    // var score = 0
+    //
+    // function changeHoleColor() {
+    //     $('.mole_hole:eq(' + randomNumber + ')').css('background-image', 'url(mole.jpeg)').css('background-size', 'cover');
+    // }
+    //
+    // $('#touch').on('click', randomMoleHole,function () {
+    //     var anotherRandomNumber = Math.floor(Math.random() * moleHoles.length);
+    //     $('.mole_hole:eq(' + randomNumber + ')').css('background-image', '');
+    //     $('.mole_hole:eq(' + anotherRandomNumber + ')').css('background-image', 'url(mole.jpeg)').css('background-size', 'cover');
+    //     randomNumber = anotherRandomNumber;
+    //     score += 1;
+    // })
+
 
 </script>
 </body>
