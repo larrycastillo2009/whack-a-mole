@@ -18,7 +18,7 @@
     <h2 id="time-left">60</h2>
 
     <div id="touch" class="row offset-3" style="height: 75vh; width: 75vh">
-        <div class="mole_hole border col-4 mole ">a</div>
+        <div class="mole_hole border col-4 ">a</div>
         <div class="mole_hole border col-4 ">b</div>
         <div class="mole_hole border col-4 ">c</div>
         <div class="mole_hole border col-4 ">d</div>
@@ -41,12 +41,55 @@
 <script>
     "use strict";
 
-    const square = document.querySelectorAll('.mole_hole')
-    const mole = document.querySelectorAll('.mole')
-    const timeLeft = document.querySelector('#time-left')
-    let score = document.querySelector('#score')
+    const square = document.querySelectorAll('.mole_hole');
+    const mole = document.querySelectorAll('.mole');
+    const timeLeft = document.querySelector('#time-left');
+    let hitPosition = null;
+    let score = document.querySelector('#score');
+    let result = 0;
+    let currentTime = timeLeft.textContent
 
-    let result = 0
+    console.log(square);
+
+    function randomSquare() {
+        square.forEach(className => {
+            className.classList.remove('mole')
+        })
+        let randomPosition = square[Math.floor(Math.random() * 9)];
+        randomPosition.classList.add('mole');
+
+       hitPosition = randomPosition.classList
+        console.log(hitPosition);
+
+    }
+
+    square.forEach(id => {
+        id.addEventListener('mouseup', () =>{
+            if(id.id === hitPosition){
+                result = result + 1
+                score.textContent = result
+            }
+        })
+    })
+
+    function moveMole() {
+        let timeId = null;
+        timeId = setInterval(randomSquare,1000);
+    }
+
+    moveMole()
+
+    function countDown() {
+        currentTime--;
+        timeLeft.textContent = currentTime
+
+        if(currentTime === 0){
+            clearInterval(timerId)
+            alert('GAME IVER! Your final score is' + result)
+        }
+    }
+    let timerId =setInterval(countDown,1000)
+
 
     // 2nd attempt
     // var score = 0;
