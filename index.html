@@ -5,14 +5,20 @@
     <title>Whack-A-Mole</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="container-fluid border" style="height: 100vh">
-    <span class="score"></span>
-    <div id="message"></div>
-    <button id="start">Start Game</button>
+    <h1>Whack-A-Mole</h1>
+
+    <h2>Your Score:</h2>
+    <h2 id="score">0</h2>
+
+    <h2>Time:</h2>
+    <h2 id="time-left">60</h2>
+
     <div id="touch" class="row offset-3" style="height: 75vh; width: 75vh">
-        <div class="mole_hole border col-4 ">a</div>
+        <div class="mole_hole border col-4 mole ">a</div>
         <div class="mole_hole border col-4 ">b</div>
         <div class="mole_hole border col-4 ">c</div>
         <div class="mole_hole border col-4 ">d</div>
@@ -35,30 +41,39 @@
 <script>
     "use strict";
 
-    var score = 0;
-    var gameover = false;
+    const square = document.querySelectorAll('.mole_hole')
+    const mole = document.querySelectorAll('.mole')
+    const timeLeft = document.querySelector('#time-left')
+    let score = document.querySelector('#score')
 
-        $(function () {
-        $('#start').click(startGame);
+    let result = 0
 
+    // 2nd attempt
+    // var score = 0;
+    // var gameover = false;
+    //
+    //     $(function () {
+    //     $('#start').click(startGame);
+    //
+    //
+    //     });
+    //
+    //     function startGame(){
+    //         score = 0;
+    //         $('.score').text(score);
+    //
+    //         gameover = false;
+    //         setTimeout(function () {
+    //             return gameend();
+    //         },5000);
+    //     }
+    //
+    //     function gameend() {
+    //         gameover = true
+    //         $('#message').html('GAME OVER')
+    //     }
 
-        });
-
-        function startGame(){
-            score = 0;
-            $('.score').text(score);
-
-            gameover = false;
-            setTimeout(function () {
-                return gameend();
-            },5000);
-        }
-
-        function gameend() {
-            gameover = true
-            $('#message').html('GAME OVER')
-        }
-
+    //     1st attempt
     // var moleHoles = document.getElementsByClassName('mole_hole');
     // var randomNumber = Math.floor(Math.random() * moleHoles.length);
     // var randomMoleHole = moleHoles[randomNumber];
