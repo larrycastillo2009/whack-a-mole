@@ -58,14 +58,14 @@
         let randomPosition = square[Math.floor(Math.random() * 9)];
         randomPosition.classList.add('mole');
 
-       hitPosition = randomPosition.classList
-        console.log(hitPosition);
+       hitPosition = randomPosition;
 
     }
 
     square.forEach(id => {
         id.addEventListener('mouseup', () =>{
-            if(id.id === hitPosition){
+            console.log(id);
+            if(id === hitPosition){
                 result = result + 1
                 score.textContent = result
             }
