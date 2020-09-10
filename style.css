@@ -3,3 +3,13 @@
     background-size: cover;
 
 }
+
+.background{
+    background-image: url("WhackAMoleBackGround.png");
+    background-size: cover;
+}
+
+.background-black{
+    background-image: url("animatedmoleHole.png");
+    background-size: cover;
+}
