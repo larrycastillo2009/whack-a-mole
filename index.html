@@ -88,24 +88,27 @@
         let timeId = null;
         timeId = setInterval(randomSquare, 1000);
     }
+    function countDown() {
+        currentTime--;
+        timeLeft.textContent = currentTime
+
+        if (currentTime === 0) {
+            clearInterval(timerId)
+            alert('GAME OVER! Your final score is ' + result + ' Click OK to play again.')
+        }
+    }
+
+    let timerId = setInterval(countDown, 1000);
+
+    if(timerId == 0){
+        timeLeft.textContent= 60;
+    }
 
     start.addEventListener('click', function () {
     moveMole();
-        function countDown() {
-            currentTime--;
-            timeLeft.textContent = currentTime
+    countDown();
+    this.disabled = true;
 
-            if (currentTime === 0) {
-                clearInterval(timerId)
-                alert('GAME OVER! Your final score is ' + result + ' Click OK to play again.')
-            }
-        }
-
-        let timerId = setInterval(countDown, 1000);
-
-        if(timerId == 0){
-            timeLeft.textContent= 60;
-        }
     })
 
 
