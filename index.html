@@ -86,7 +86,7 @@
 
     function moveMole() {
         let timeId = null;
-        timeId = setInterval(randomSquare, 1000);
+        timeId = setInterval(randomSquare, (Math.floor(Math.random() * 9)) * 200);
     }
     function countDown() {
         currentTime--;
@@ -98,13 +98,13 @@
         }
     }
 
-    let timerId = setInterval(countDown, 1000);
-
-    if(timerId == 0){
-        timeLeft.textContent= 60;
-    }
 
     start.addEventListener('click', function () {
+        let timerId = setInterval(countDown, 1000);
+
+        if(timerId == 0){
+            timeLeft.textContent= 60;
+        }
     moveMole();
     countDown();
     this.disabled = true;
