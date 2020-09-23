@@ -100,24 +100,24 @@
         timeLeft.textContent = currentTime
 
         if (currentTime === 0) {
-            clearInterval(timerId)
+            clearInterval()
             alert('GAME OVER! Your final score is ' + result + ' Click OK to play again.')
+            timeLeft.textContent= 60;
+
         }
     }
 
 
     start.addEventListener('click', function () {
+        this.disabled = true;
+        moveMole();
         let timerId = setInterval(countDown, 1000);
 
         if(timerId == 0){
-            timeLeft.textContent= 60;
+            this.disabled = false;
         }
-    moveMole();
-    countDown();
-    this.disabled = true;
 
     })
-
 
 
 </script>
