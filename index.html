@@ -80,6 +80,13 @@
             if (id === hitPosition) {
                 result = result + 1
                 score.textContent = result
+                id.classList.remove('mole');
+                id.classList.add('background-black')
+                let randomPosition = square[Math.floor(Math.random() * 9)];
+                randomPosition.classList.remove('background-black')
+                randomPosition.classList.add('mole');
+
+                hitPosition = randomPosition;
             }
         })
     })
