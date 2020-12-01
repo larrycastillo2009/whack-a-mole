@@ -41,7 +41,7 @@ square.forEach(id => {
 
 function moveMole() {
     let timeId = null;
-    timeId = setInterval(randomSquare, (Math.floor(Math.random() * 9)) * 500);
+    timeId = setInterval(randomSquare, (Math.floor(Math.random() * 9)) * 250);
 }
 
 function countDown() {
@@ -50,9 +50,8 @@ function countDown() {
 
     if (currentTime === 0) {
         clearInterval()
-        alert('GAME OVER! Your final score is ' + result + ' Click OK to play again.')
-        timeLeft.textContent= 60;
-
+        alert('GAME OVER! Your final score is ' + result + ' Click OK to reset gameboard')
+        location.reload();
     }
 }
 
