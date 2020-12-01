@@ -41,7 +41,7 @@ square.forEach(id => {
 
 function moveMole() {
     let timeId = null;
-    timeId = setInterval(randomSquare, (Math.floor(Math.random() * 9)) * 250);
+    timeId = setInterval(randomSquare, (Math.floor(Math.random() * 9)) * 250 + 500);
 }
 
 function countDown() {
