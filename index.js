@@ -8,7 +8,7 @@ let score = document.querySelector('#score');
 let result = 0;
 let currentTime = timeLeft.textContent
 
-
+// This function random generates the position that the mole image will land on next
 function randomSquare() {
     square.forEach(className => {
         className.classList.remove('mole')
@@ -21,7 +21,7 @@ function randomSquare() {
     hitPosition = randomPosition;
 
 }
-
+// This block of code recognizes the when the mole is clicked
 square.forEach(id => {
     id.addEventListener('mouseup', () => {
         console.log(id);
@@ -38,12 +38,12 @@ square.forEach(id => {
         }
     })
 })
-
+// This function randomly gnenerates the time interval in which the mole will move
 function moveMole() {
     let timeId = null;
     timeId = setInterval(randomSquare, (Math.floor(Math.random() * 9)) * 250 + 500);
 }
-
+// This function keeps global time for which the player has to bonk moles
 function countDown() {
     currentTime--;
     timeLeft.textContent = currentTime
@@ -54,7 +54,7 @@ function countDown() {
         location.reload();
     }
 }
-
+// This block of code listens for when the player begins the game
 start.addEventListener('click', function () {
     this.disabled = true;
     moveMole();
